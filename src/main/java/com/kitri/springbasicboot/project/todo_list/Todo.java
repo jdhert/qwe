@@ -3,9 +3,9 @@ package com.kitri.springbasicboot.project.todo_list;
 public class Todo {
     int id;
     String todo;
-    String done;
+    boolean done;
 
-    public Todo(int id, String todo, String done) {
+    public Todo(int id, String todo, boolean done) {
         this.id = id;
         this.todo = todo;
         this.done = done;
@@ -27,11 +27,11 @@ public class Todo {
         this.todo = todo;
     }
 
-    public String getDone() {
+    public boolean getDone() {
         return done;
     }
 
-    public void setDone(String done) {
+    public void setDone(boolean done) {
         this.done = done;
     }
 }
