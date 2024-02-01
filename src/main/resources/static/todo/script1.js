@@ -1,4 +1,21 @@
-let id = 6;
+
+let id ;
+async function view() {
+    document.querySelector("#todos").innerHTML = "";
+    let li = "";
+    let res = await fetch("/api/todos");
+    let a = await res.json();
+    id = a.length;
+    a.forEach((ele) => {
+        li += `<li>${ele.todo}</li> <span hidden>${ele.id}</span>`;
+    });
+    document.querySelector("#todos").innerHTML += li;
+}
+
+
+view();
+
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     let formData = { "id": `${id++}`, "todo" : input.value, "done" : "false"};
@@ -14,22 +31,6 @@ form.addEventListener("submit", (e) => {
     let li2 = `<li>${a}</li>`;
     document.querySelector("#todos").innerHTML += li2;
 });
-
-
-
-async function view() {
-    document.querySelector("#todos").innerHTML = "";
-    let li = "";
-    let res = await fetch("/api/todos");
-    let a = await res.json();
-    a.forEach((ele) => {
-        li += `<li>${ele.todo}</li> <span hidden>${ele.id}</span>`;
-    });
-    document.querySelector("#todos").innerHTML += li;
-}
-
-
-view();
 
 
 // document.querySelector(".todos").addEventListener('contextmenu', function(event) {
