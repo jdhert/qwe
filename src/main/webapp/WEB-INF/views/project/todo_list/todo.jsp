@@ -16,6 +16,5 @@
 </form>
 <small>왼쪽 클릭: 항목 완료 <br> 오른쪽 클릭: 해당 항목 삭제</small>
 <script src="/todo/script1.js"></script>
-<%--<script src="/todo/script.js"></script>--%>
 </body>
 </html>
