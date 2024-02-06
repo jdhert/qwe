@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TodoController {
     @GetMapping
     public String todos() {
-        return "/project/todo/todos";
+        return "project/todo_list/todo";
     }
 }
