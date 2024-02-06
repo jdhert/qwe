@@ -54,7 +54,6 @@ public class LoginController {
             return "redirect:/login";
         }else{
             session.setAttribute("Login", false);
-            System.out.println("하하");
             return "redirect:/login";
         }
     }
