@@ -5,8 +5,8 @@ async function view() {
     let a = await res.json();
     a.forEach((ele) => {
         if(`${ele.done}` === "true"){
-            li += `<li class="completed">${ele.todo}</li> <span hidden>${ele.id}</span> <span hidden>${ele.done}</span>`;
-        }else li += `<li>${ele.todo}</li> <span hidden>${ele.id}</span> <span hidden>${ele.done}</span>`;
+            li += `<li class="completed">${ele.content}</li> <span hidden>${ele.id}</span> <span hidden>${ele.done}</span>`;
+        }else li += `<li>${ele.content}</li> <span hidden>${ele.id}</span> <span hidden>${ele.done}</span>`;
     });
     document.querySelector("#todos").innerHTML += li;
 }
@@ -17,7 +17,7 @@ view();
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    let formData = {"id": 0, "todo": input.value, "done": false};
+    let formData = { "content": input.value, "done": false};
     await fetch("/api/todos", {
         method: `POST`,
         headers: {
@@ -45,7 +45,7 @@ document.querySelector(".todos").addEventListener('mousedown', async function (e
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({"id": event.target.nextElementSibling.innerHTML, "todo": event.target.innerHTML, "done": !(JSON.parse(event.target.nextElementSibling.nextElementSibling.innerHTML))}),
+                body: JSON.stringify({"id": event.target.nextElementSibling.innerHTML, "content": event.target.innerHTML, "done": !(JSON.parse(event.target.nextElementSibling.nextElementSibling.innerHTML))}),
             });
         }
         view();

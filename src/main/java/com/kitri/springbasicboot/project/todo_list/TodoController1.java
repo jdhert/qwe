@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
-@Controller
-@RequestMapping("/todo")
+//@Controller
+//@RequestMapping("/todo")
 public class TodoController1 {
     ArrayList<String> arrayList = new ArrayList<>();
     @GetMapping("")

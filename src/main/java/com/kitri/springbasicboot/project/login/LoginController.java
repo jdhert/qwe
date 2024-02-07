@@ -18,6 +18,7 @@ public class LoginController {
 
     @GetMapping
     public String show(){
+
         return "redirect:/login/login.html";
     }
 
@@ -81,7 +82,7 @@ public class LoginController {
         if(!Objects.equals(form.getPassword(), form.getPassword1()))
             return "redirect:/login/fail";
         if(bindingResult.hasErrors())
-            return "redirect:/login";
+            return "redirect:/login/fail";
         if(User.containsKey(form.getEmail()))
             return "redirect:/login/fail";
         User.put(form.getEmail(), form.getPassword());
